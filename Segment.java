@@ -65,5 +65,11 @@ class Segment {
         return finalY;
     }
     
-    
+     /**
+     * retorna true si el nuevo segmento colisiona con el ya existente.
+     */
+    public boolean colisionaCon(Segment segmento) {
+        return (segmento.getPosiFinalX() == posiX) && (segmento.getPosiFinalY()
+                == posiY);
+    }
 }
