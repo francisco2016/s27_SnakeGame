@@ -1,8 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Snake()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Snake\r\n
-comment1.params=y
-comment1.target=int\ sampleMethod(int)
-comment1.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=2
+comment1.params=segmento
+comment1.target=boolean\ colisionBordes(Segment)
+comment1.text=\r\n\ devuelve\ true\ si\ el\ segmento\ colisiona\ con\ los\ bordes.\r\n
+comment2.params=segmento
+comment2.target=boolean\ colisionConSegmentos(Segment)
+comment2.text=\r\n\ devuelve\ si\ el\ segmento\ coliona\ con\ otros\ segmentos.\r\n
+comment3.params=segmento
+comment3.target=boolean\ segmentValido(Segment)
+comment3.text=\r\n\ devuelve\ true\ si\ el\ segmento\ es\ v\u00E1lido\ para\ a\u00F1adirse.\r\n
+numComments=4
