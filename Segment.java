@@ -27,6 +27,43 @@ class Segment {
                             aleatorio.nextInt(225));
     }
     
+    /**
+     * retorna la direccion del segmento: 0º se desplaza hacia la izquierda, 
+     * 180º hacia la derecha, 90º hacia arriba, 270º hacia abajo.
+     */
+    public int getDireccion(){
+        return direccion;
+    }
+    
+    /**
+     * serie de metodos getters que retornan las coordenadas del segmento.
+     */
+    public int getPosiX(){
+        return posiX;
+    }
+    public int getPosiY(){
+        return posiY;
+    }
+    public int getPosiFinalX(){
+    int finalX = posiX;
+    if(direccion == 0){
+        finalX += LONG_SEGMENTO;
+    }
+    else if(direccion == 180){
+        finalX -= posiX;
+    }
+    return finalX;
+    }
+    public int getPosiFinalY(){
+        int finalY = posiY;
+        if(direccion == 90){
+            finalY -= LONG_SEGMENTO;
+        }
+        else if(direccion == 270){
+            finalY += LONG_SEGMENTO;
+        }
+        return finalY;
+    }
     
     
 }
