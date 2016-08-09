@@ -72,4 +72,40 @@ class Segment {
         return (segmento.getPosiFinalX() == posiX) && (segmento.getPosiFinalY()
                 == posiY);
     }
+    
+     /**
+     * dibuja un segmento en el lienzo.
+     */
+    public void dibujar(Canvas lienzo){
+        lienzo.setForegroundColor(color);
+        lienzo.drawLine(posiX, posiY, getPosiFinalX(), getPosiFinalY());
+    }
+    
+    /**
+     * borra el segmento del lienzo.
+     */
+    public void borrar(Canvas lienzo){
+        lienzo.erase();
+    }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
