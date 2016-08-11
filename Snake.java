@@ -5,6 +5,7 @@ import java.util.Random;
  * @Francisco
  */
 class Snake {
+    private Canvas lienzo;
     private ArrayList<Segment> segmentos;
     private int largoLienzo;
     private int altoLienzo;
@@ -44,8 +45,6 @@ class Snake {
         for(Segment segment: segmentos){
             segment.borrar(lienzo);
         }
-       // lienzo.eraseCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
-           // (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
             lienzo.eraseCircle((segmentos.get(0).getPosiX()) -DIAMETRO_CABEZA /2, 
             (segmentos.get(0).getPosiY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
     }
@@ -124,6 +123,16 @@ class Snake {
         // 2º saber si el segmento que vamos a adiccionar es válido o no lo es. 
         // 3º crear el objeto segmento con todos los parámetros que requiere su constructor y, añadirlo a la colección de Segmentos.
         Random aleatorio = new Random();
+         //nos falta el parámetro color, para poder crear un objeto segmento.
+        color = new Color(aleatorio.nextInt(225), aleatorio.nextInt(225), aleatorio.nextInt(225));
+        
+        //otro de los parámetros necesarios para crear un segmento es la dirección. creo una colección de Integer
+        //para poder elegir aleatoriamente la dirección que tendrá el segmento.
+        ArrayList<Integer> direccion = new ArrayList<>();
+        for(int i = 0; i < 4; i ++){
+            direccion.add(i *VALOR_GRADOS);
+        }
+        
         //creo variables para las coordenadas del segmento.
         int posiX = aleatorio.nextInt(largoLienzo -(2* BORDE)) +BORDE;
         int posiY = aleatorio.nextInt(altoLienzo -(2* BORDE)) +BORDE;
@@ -134,17 +143,7 @@ class Snake {
             posiX = segmentos.get(segmentos.size() -1).getPosiFinalX();
             posiY = segmentos.get(segmentos.size() -1).getPosiFinalY();
         }
-
-        //otro de los parámetros necesarios para crear un segmento es la dirección. creo una colección de Integer
-        //para poder elegir aleatoriamente la dirección que tendrá el segmento.
-        ArrayList<Integer> direccion = new ArrayList<>();
-        for(int i = 0; i < 4; i ++){
-            direccion.add(i *VALOR_GRADOS);
-        }
-
-        //nos falta el parámetro color, para poder crear un objeto segmento.
-        color = new Color(aleatorio.nextInt(225), aleatorio.nextInt(225), aleatorio.nextInt(225));
-
+        
         Segment segment3 = null; //creo un nuevo objeto segmento, y compruebo si los parámetros que debe llevar y
         // que le puedo asignar de todos los que dispongo, son válidos.
 
