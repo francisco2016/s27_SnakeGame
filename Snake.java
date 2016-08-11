@@ -11,7 +11,8 @@ class Snake {
     private Color color;
     public static final int BORDE = 20; //---- borde del lienzo
     public static final int VALOR_GRADOS = 90;//--- facilita la dirección del segmento.
-    public static final int NUM_SEGMENT = 15;
+    public static final int NUM_SEGMENT = 5;
+    public static final int DIAMETRO_CABEZA = 10;
     
     public Snake( int largoLienzo, int altoLienzo) {
         segmentos = new ArrayList<>();
@@ -22,7 +23,31 @@ class Snake {
             addSegment();
         }
     }
+    
+    /**
+     * dibuja la serpiente. 
+     */
+    public void dibujar(Canvas lienzo){
+        //teniendo en cuenta que la serpiente está formada por varios segmentos, creamos un bucle para
+        //recorrer la colección de segmentos 
+        for(Segment segment: segmentos){
+            segment.dibujar(lienzo);
+        }
+         lienzo.fillCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
+                (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+    }
 
+    /**
+     * borra la serpiente.
+     */
+    public void borrar(Canvas lienzo){
+        for(Segment segment: segmentos){
+            segment.dibujar(lienzo);
+        }
+        lienzo.eraseCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
+                (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+    }
+    
      public boolean colisionaConLosBordes(Segment segment) {
         boolean colisiona = false;
         if ( (segment.getPosiFinalX() >= largoLienzo - BORDE) ||
@@ -54,28 +79,6 @@ class Snake {
      */
     public boolean segmentValido(Segment segmento){
         return !colisionaConLosBordes(segmento) && !colisionConSegmentos(segmento);
-    }
-
-    /**
-     * dibuja la serpiente. 
-     */
-    public void dibujar(Canvas lienzo){
-        //teniendo en cuenta que la serpiente está formada por varios segmentos, creamos un bucle para
-        //recorrer la colección de segmentos 
-        for(Segment segment: segmentos){
-            segment.dibujar(lienzo);
-        }
-        
-    }
-
-    /**
-     * borra la serpiente.
-     */
-    public void borrar(Canvas lienzo){
-        for(Segment segment: segmentos){
-            segment.dibujar(lienzo);
-        }
-        
     }
 
     /**

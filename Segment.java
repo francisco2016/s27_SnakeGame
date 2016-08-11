@@ -79,6 +79,7 @@ class Segment {
     public void dibujar(Canvas lienzo){
         lienzo.setForegroundColor(color);
         lienzo.drawLine(posiX, posiY, getPosiFinalX(), getPosiFinalY());
+        
     }
     
     /**
