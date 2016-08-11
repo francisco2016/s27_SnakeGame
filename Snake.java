@@ -13,7 +13,7 @@ class Snake {
     public static final int VALOR_GRADOS = 90;//--- facilita la dirección del segmento.
     public static final int NUM_SEGMENT = 5;
     public static final int DIAMETRO_CABEZA = 10;
-    
+
     public Snake( int largoLienzo, int altoLienzo) {
         segmentos = new ArrayList<>();
         this.segmentos = segmentos;
@@ -23,7 +23,7 @@ class Snake {
             addSegment();
         }
     }
-    
+
     /**
      * dibuja la serpiente. 
      */
@@ -33,8 +33,8 @@ class Snake {
         for(Segment segment: segmentos){
             segment.dibujar(lienzo);
         }
-         lienzo.fillCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
-                (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+        lienzo.fillCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
+            (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
     }
 
     /**
@@ -42,13 +42,46 @@ class Snake {
      */
     public void borrar(Canvas lienzo){
         for(Segment segment: segmentos){
-            segment.dibujar(lienzo);
+            segment.borrar(lienzo);
         }
-        lienzo.eraseCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
-                (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+       // lienzo.eraseCircle((segmentos.get(segmentos.size() -1).getPosiFinalX()) -DIAMETRO_CABEZA /2, 
+           // (segmentos.get(segmentos.size() -1).getPosiFinalY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+            lienzo.eraseCircle((segmentos.get(0).getPosiX()) -DIAMETRO_CABEZA /2, 
+            (segmentos.get(0).getPosiY()) -DIAMETRO_CABEZA /2, DIAMETRO_CABEZA);
+    }
+
+    /**
+     *simula el movimiento de la serpiente. Para ello debes eliminar el segmento que esta en la cola de la serpiente y
+     *añadir un segmento aleatorio en el inicio de la misma. Este método no dibuja ni borra nada en la pantalla, solo 
+     *quita un segmento y pone otro. Evidentemente, el segmento añadido en la cabeza no debe colisionar ni con los bordes
+     *del lienzo ni con el resto de segmentos de la serpiente. Si no es posible añadir un segmento nuevo el metodo
+     *mover devuelve false -------------------------------------------------------------------- 0693
+     */
+    public boolean mover(){
+        segmentos.remove(0);
+        boolean valor = addSegment();
+        return valor;
     }
     
-     public boolean colisionaConLosBordes(Segment segment) {
+    /**
+     *leve a cabo una animacion consistente en que la serpiente se mueve aleatoriamente por toda la pantalla. 
+     *La animación termina en caso de que la serpiente quede encerrada sobre ella misma o sobre un borde del lienzo. 
+     *En este caso se debe mostrar el mensaje "Game Over" sobre el propio lienzo (¡no por la terminal!).
+     *------------------------------------------------------------------------------------------ 0693
+     */
+    public void animateSnake(Canvas lienzo){
+        boolean xxx = true;
+        while(xxx){
+            borrar(lienzo);
+            xxx = mover();
+            dibujar(lienzo);
+            lienzo.wait(150);
+            
+        }
+    
+    }
+    
+    public boolean colisionaConLosBordes(Segment segment) {
         boolean colisiona = false;
         if ( (segment.getPosiFinalX() >= largoLienzo - BORDE) ||
         (segment.getPosiFinalY() >= altoLienzo - BORDE) ||

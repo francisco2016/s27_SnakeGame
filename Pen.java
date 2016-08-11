@@ -22,7 +22,8 @@ public class Pen
 
     private Canvas canvas;
     private Random random;
-
+    
+    
     /**
      * Create a new Pen with its own canvas. The pen will create a new canvas for 
      * itself to draw on, and start in the default state (centre of canvas, direction
