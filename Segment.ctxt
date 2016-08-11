@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=posiX\ posiY\ direccion
-comment0.target=Segment(int,\ int,\ int)
+comment0.params=posiX\ posiY\ direccion\ color
+comment0.target=Segment(int,\ int,\ int,\ java.awt.Color)
 comment1.params=
 comment1.target=int\ getDireccion()
 comment1.text=\r\n\ retorna\ la\ direccion\ del\ segmento\:\ 0\u00BA\ se\ desplaza\ hacia\ la\ izquierda,\ \r\n\ 180\u00BA\ hacia\ la\ derecha,\ 90\u00BA\ hacia\ arriba,\ 270\u00BA\ hacia\ abajo.\r\n

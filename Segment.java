@@ -17,7 +17,7 @@ class Segment {
     
     //Constructor que inicializa para inicializar atributos.
 
-    public Segment(int posiX, int posiY, int direccion) {
+    public Segment(int posiX, int posiY, int direccion, Color color) {
         this.posiX = posiX;
         this.posiY = posiY;
         this.direccion = (direccion != 0 && direccion != 90 && 

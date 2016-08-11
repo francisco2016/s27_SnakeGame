@@ -1,13 +1,21 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Snake()
-comment1.params=segmento
-comment1.target=boolean\ colisionBordes(Segment)
-comment1.text=\r\n\ devuelve\ true\ si\ el\ segmento\ colisiona\ con\ los\ bordes.\r\n
+comment0.params=largoLienzo\ altoLienzo
+comment0.target=Snake(int,\ int)
+comment1.params=segment
+comment1.target=boolean\ colisionaConLosBordes(Segment)
 comment2.params=segmento
 comment2.target=boolean\ colisionConSegmentos(Segment)
 comment2.text=\r\n\ devuelve\ si\ el\ segmento\ coliona\ con\ otros\ segmentos.\r\n
 comment3.params=segmento
 comment3.target=boolean\ segmentValido(Segment)
 comment3.text=\r\n\ devuelve\ true\ si\ el\ segmento\ es\ v\u00E1lido\ para\ a\u00F1adirse.\r\n
-numComments=4
+comment4.params=lienzo
+comment4.target=void\ dibujar(Canvas)
+comment4.text=\r\n\ dibuja\ la\ serpiente.\ \r\n
+comment5.params=lienzo
+comment5.target=void\ borrar(Canvas)
+comment5.text=\r\n\ borra\ la\ serpiente.\r\n
+comment6.params=
+comment6.target=boolean\ addSegment()
+comment6.text=\r\n\ mt\ para\ adiccionar\ un\ segmento\ a\ la\ serpiente.\r\n
+numComments=7
