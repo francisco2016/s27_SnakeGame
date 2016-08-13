@@ -24,7 +24,7 @@ class Segment {
             direccion != 180 && direccion != 270 ) ? 180 : direccion;
         aleatorio = new Random();
         color = new Color(aleatorio.nextInt(225), aleatorio.nextInt(225),
-            aleatorio.nextInt(225));
+        aleatorio.nextInt(225));
     }
 
     /**
@@ -75,27 +75,6 @@ class Segment {
         }
         return finalX;
     }
-    
-    //     public int getPosiFinalX(){
-    //     int finalX = posiX;
-    //     if(direccion == 0){
-    //         finalX += LONG_SEGMENTO;
-    //     }
-    //     else if(direccion == 180){
-    //         finalX -= posiX;
-    //     }
-    //     return finalX;
-    //     }
-    //     public int getPosiFinalY(){
-    //         int finalY = posiY;
-    //         if(direccion == 90){
-    //             finalY -= LONG_SEGMENTO;
-    //         }
-    //         else if(direccion == 270){
-    //             finalY += LONG_SEGMENTO;
-    //         }
-    //         return finalY;
-    //     }
 
     /**
      * retorna true si el nuevo segmento colisiona con el ya existente.
@@ -109,6 +88,7 @@ class Segment {
      * dibuja un segmento en el lienzo.
      */
     public void dibujar(Canvas lienzo){
+        lienzo = new Canvas("");//-----------------------------------------------------------------------------
         lienzo.setForegroundColor(color);
         lienzo.drawLine(posiX, posiY, getPosiFinalX(), getPosiFinalY());
 

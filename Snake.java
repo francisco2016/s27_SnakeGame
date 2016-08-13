@@ -9,6 +9,7 @@ class Snake {
     private ArrayList<Segment> segmentos;
     private int largoLienzo;
     private int altoLienzo;
+
     private Color color;
     public static final int BORDE = 20; //---- borde del lienzo
     public static final int VALOR_GRADOS = 90;//--- facilita la dirección del segmento.
@@ -20,6 +21,7 @@ class Snake {
         this.segmentos = segmentos;
         this.largoLienzo = largoLienzo;
         this.altoLienzo = altoLienzo;
+        lienzo = new Canvas("");
         for(int i = 0; i < NUM_SEGMENT; i ++){
             addSegment();
         }
@@ -28,7 +30,7 @@ class Snake {
     /**
      * dibuja la serpiente. 
      */
-    public void dibujar(Canvas lienzo){
+    public void dibujar(Canvas lienzo){ 
         //teniendo en cuenta que la serpiente está formada por varios segmentos, creamos un bucle para
         //recorrer la colección de segmentos 
         for(Segment segment: segmentos){
@@ -41,7 +43,7 @@ class Snake {
     /**
      * borra la serpiente.
      */
-    public void borrar(Canvas lienzo){
+    public void borrar(Canvas lienzo){ 
         for(Segment segment: segmentos){
             segment.borrar(lienzo);
         }
@@ -68,7 +70,7 @@ class Snake {
      *En este caso se debe mostrar el mensaje "Game Over" sobre el propio lienzo (¡no por la terminal!).
      *------------------------------------------------------------------------------------------ 0693
      */
-    public void animateSnake(Canvas lienzo){
+    public void animateSnake(Canvas lienzo){ 
         boolean xxx = true;
         while(xxx){
             borrar(lienzo);
