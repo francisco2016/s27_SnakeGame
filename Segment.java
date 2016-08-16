@@ -88,7 +88,7 @@ class Segment {
      * dibuja un segmento en el lienzo.
      */
     public void dibujar(Canvas lienzo){
-        lienzo = new Canvas("");//-----------------------------------------------------------------------------
+       // lienzo = new Canvas("");//-----------------------------------------------------------------------------
         lienzo.setForegroundColor(color);
         lienzo.drawLine(posiX, posiY, getPosiFinalX(), getPosiFinalY());
 
